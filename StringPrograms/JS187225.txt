@@ -1,0 +1,68 @@
+1. What is IIFE in JavaScript?
+
+IIFE stnd for inmmidiately invoke function exression 
+It is the JavaScript function that run as soon as it is defined or created.
+
+It is the used to create private scoppe for variables and functions in the JavaScrip.
+
+syntax ; 
+(function() {
+    // code to be executed immediately
+})();
+
+Why use IIFE?
+1. avoid olluting the global scopppe, variable inside the IIFE can accessible only withing IIFE not outside.
+2. Encappsulation - create pprivate variable and functions that are not accessible from the outside.
+
+
+
+2. Can IIFE be asynchronous? If yes, give an example using async/await.
+Yes, IIFE can be asynchronous. You can use the `async` keyword before the function declaration to make it an asynchronous IIFE. Here's an example using `async/await`:
+```javascript 
+(async function() {
+    try {
+        const result = await fetch('https://api.example.com/data');
+        const data = await result.json();
+        console.log(data);
+    } catch (error) {
+        console.error('Error fetching data:', error);
+    }
+})();
+
+3. How is an IIFE different from a normal function call?
+
+    in IIFE , the function exicuted immediately after its creation, without needing called by name.
+    in normal function, function is defined and then called later by its name.
+
+4. Can you pass parameters to an IIFE? If yes, how?
+Yes, you can pass parameters to an IIFE. You can define parameters in the function declaration and then pass arguments when invoking the IIFE. Here's an example:
+```javascript
+(function(name) {
+    console.log('Hello, ' + name + '!');
+})('Alice');    
+
+// Output: Hello, Alice!
+
+5. What are the benefits of using IIFE in JavaScript?
+1. **Avoid Global Scope Pollution**: IIFE helps to prevent variables and functions from being added to the global scope, reducing the risk of naming conflicts.
+2. **Encapsulation**: It allows you to create private variables and functions that are not accessible from the outside, promoting better modularity and organization of code.
+3. **Immediate Execution**: IIFE runs immediately after its definition, which can be useful for initializing code or setting up configurations without polluting the global scope.
+4. **Avoiding Hoisting Issues**: IIFE can help avoid issues related to variable hoisting, as the variables defined within the IIFE are not accessible outside of it, preventing unintended access or modification.
+5. **Cleaner Code**: It can lead to cleaner and more maintainable code by keeping related functionality together and avoiding the need for global variables or functions.
+6. **Self-Contained Logic**: IIFE can encapsulate logic that doesn't need to be reused elsewhere, making it easier to reason about and test specific pieces of functionality without affecting the global environment.
+7. **Support for Module Patterns**: IIFE can be used to implement module patterns, allowing for better organization of code and separation of concerns, especially in larger applications.
+8. **Compatibility with Older Browsers**: IIFE is widely supported in older browsers, making it a reliable choice for ensuring compatibility across different environments.
+```
+
+
+
+What is lexical scope in JavaScript?
+ 
+accessibility or availability of variable 
+it is based on where we write the variable and how we write the variable. 
+for example, if we write variable with var keyword then it is accessible in entire function 
+             if we write variable in any block with let and const then it is accessible only in that block
+            so this accessibility of variable is called lexical scope.
+
+one more example, if we write variable in outer function then it is accessible to inner function, but
+if we write variable in inner function then it is not accessible to outer function.
